@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,19 +8,65 @@ import { VersionBadge, FlowAnnotation } from "@/components/FlowAnnotation";
 
 type Answers = Record<string, string>;
 
-const recommendationsMap: Record<string, { classes: string[]; description: string }> = {
-  beginner: {
-    classes: ["Beginner Hatha Flow", "Gentle Introduction to Yoga", "Yoga Basics"],
-    description: "Perfect for building foundational poses and understanding yoga principles",
+// Map answer values to readable labels
+const answerLabels: Record<string, Record<string, string>> = {
+  q1: {
+    A: "Very flexible",
+    B: "Some stiffness",
+    C: "Work in progress",
+    D: "Quite stiff",
   },
-  intermediate: {
-    classes: ["Vinyasa Flow", "Power Yoga", "Ashtanga Primary Series"],
-    description: "Challenge yourself while refining technique and building strength",
+  q2: {
+    A: "No injuries",
+    B: "Minor issue",
+    C: "Ongoing challenges",
+    D: "Recovering",
   },
-  advanced: {
-    classes: ["Advanced Vinyasa", "Arm Balance Workshop", "Inversions & Backbends"],
-    description: "Push your limits with complex poses and advanced sequences",
+  q3: {
+    A: "Casual",
+    B: "Dedicated",
+    C: "Self-guided",
+    D: "Curious",
   },
+  q4: {
+    A: "Relaxation",
+    B: "Strength & flexibility",
+    C: "Gentle flow",
+    D: "Mindfulness",
+  },
+  q5: {
+    A: "Group setting",
+    B: "Solo focus",
+    C: "Slow & meditative",
+    D: "Guided instruction",
+  },
+};
+
+// Generate recommendations based on answers
+const getRecommendations = (answers: Answers) => {
+  const vibes = answers.q4;
+  
+  if (vibes === "A") {
+    return {
+      classes: ["Restorative Yoga", "Yin Yoga", "Gentle Stretch Flow"],
+      description: "Focus on deep relaxation and tension release",
+    };
+  } else if (vibes === "B") {
+    return {
+      classes: ["Power Yoga", "Vinyasa Flow", "Ashtanga Primary Series"],
+      description: "Build strength while increasing flexibility",
+    };
+  } else if (vibes === "C") {
+    return {
+      classes: ["Slow Flow Yoga", "Hatha Basics", "Mindful Movement"],
+      description: "Gentle, flowing sequences at a calm pace",
+    };
+  } else {
+    return {
+      classes: ["Meditation & Yoga", "Breathwork Basics", "Yoga for Beginners"],
+      description: "Explore mindfulness and inner balance",
+    };
+  }
 };
 
 const aiTips = [
@@ -33,13 +80,19 @@ const ResultsV1 = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const answers = (location.state?.answers as Answers) || {};
+  const hasAnswers = Object.keys(answers).length > 0;
 
-  if (!answers.experience) {
-    navigate("/");
+  useEffect(() => {
+    if (!hasAnswers) {
+      navigate("/");
+    }
+  }, [hasAnswers, navigate]);
+
+  if (!hasAnswers) {
     return null;
   }
 
-  const recommendations = recommendationsMap[answers.experience];
+  const recommendations = getRecommendations(answers);
 
   return (
     <div className="min-h-screen bg-background py-8 px-4">
@@ -87,16 +140,9 @@ const ResultsV1 = () => {
                       key={index}
                       className="flex items-center justify-between p-3 rounded border border-border"
                     >
-                      <div>
-                        <h4 className="font-medium text-sm">{className}</h4>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          {answers.intensity === "gentle" && "Gentle pace"}
-                          {answers.intensity === "moderate" && "Moderate intensity"}
-                          {answers.intensity === "vigorous" && "High energy"}
-                        </p>
-                      </div>
-                      <Badge variant="secondary" className="text-xs">
-                        {answers.style}
+                      <h4 className="font-medium">{className}</h4>
+                      <Badge variant="secondary">
+                        Recommended
                       </Badge>
                     </div>
                   ))}
@@ -117,12 +163,12 @@ const ResultsV1 = () => {
                   <Sparkles className="h-4 w-4 text-primary" />
                   <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
                 </div>
-                <CardDescription>AI-generated guidance for your practice</CardDescription>
+                <CardDescription>Personalized guidance for your practice</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   {aiTips.map((tip, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
                       <span className="text-primary mt-0.5">•</span>
                       <span>{tip}</span>
                     </li>
@@ -138,22 +184,22 @@ const ResultsV1 = () => {
               <CardTitle className="text-lg font-heading">Your Input Summary</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <span className="text-muted-foreground">Experience</span>
-                  <p className="font-medium capitalize">{answers.experience}</p>
+                  <span className="text-muted-foreground">Body Condition</span>
+                  <p className="font-medium">{answerLabels.q1[answers.q1] || answers.q1}</p>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Goals</span>
-                  <p className="font-medium capitalize">{answers.goals}</p>
+                  <span className="text-muted-foreground">Injuries</span>
+                  <p className="font-medium">{answerLabels.q2[answers.q2] || answers.q2}</p>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Intensity</span>
-                  <p className="font-medium capitalize">{answers.intensity}</p>
+                  <span className="text-muted-foreground">Commitment</span>
+                  <p className="font-medium">{answerLabels.q3[answers.q3] || answers.q3}</p>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Style</span>
-                  <p className="font-medium capitalize">{answers.style}</p>
+                  <span className="text-muted-foreground">Yoga Goals</span>
+                  <p className="font-medium">{answerLabels.q4[answers.q4] || answers.q4}</p>
                 </div>
               </div>
             </CardContent>
@@ -161,7 +207,7 @@ const ResultsV1 = () => {
 
           {/* Annotation note */}
           <div className="p-4 bg-muted/50 rounded border border-border">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <strong className="text-foreground">V1 Note:</strong> This baseline implementation 
               provides recommendations and AI tips without explicit data control mechanisms, 
               bias screening, or GDPR compliance features.
