@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-        body: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+        heading: ['"Crimson Pro"', 'Georgia', 'serif'],
+        body: ['"Crimson Pro"', 'Georgia', 'serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
