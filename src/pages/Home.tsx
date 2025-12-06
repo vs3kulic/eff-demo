@@ -123,34 +123,30 @@ const Home = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="font-medium text-foreground">Characteristics:</p>
+                  <ul className="space-y-1.5 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent">•</span>
+                      <span>Privacy-first data collection (90-day retention)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent">•</span>
+                      <span>Transparent recommendation explanations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent">•</span>
+                      <span>AI-generated content (labeled, moderated)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-accent">•</span>
+                      <span>Dark-pattern-free consent (opt-in)</span>
+                    </li>
+                  </ul>
+                </div>
                 <div className="space-y-3">
                   <p className="font-medium text-sm text-foreground">Ethical Values Applied:</p>
                   <EthicsLabels values={v2EthicsValues} />
-                </div>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p className="font-medium text-foreground">Ethical Values:</p>
-                  <ul className="space-y-1.5 ml-4">
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-medium">Utility:</span>
-                      <span>Effectiveness and relevance (accuracy, satisfaction)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-medium">Fairness:</span>
-                      <span>Equitable treatment, avoiding bias</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-medium">Privacy:</span>
-                      <span>Data protection, consent, retention limits</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-medium">Explainability:</span>
-                      <span>User understanding of decisions</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-accent font-medium">Safety:</span>
-                      <span>Harm prevention, content moderation</span>
-                    </li>
-                  </ul>
                 </div>
                 <Button 
                   onClick={() => navigate('/questionnaire/v2')}
