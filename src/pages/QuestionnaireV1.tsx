@@ -14,52 +14,52 @@ type Answer = string;
 const questions = [
   {
     id: "q1",
-    question: "Wie fühlt sich dein Körper aktuell an?",
+    question: "How does your body feel right now?",
     options: [
-      { value: "A", label: "Basically der Typ flexible Brezel – super elastisch in allen Positionen." },
-      { value: "B", label: "Solide, aber manchmal knarre ich beim Aufstehen wie ein Holzstuhl." },
-      { value: "C", label: "Mein Körper ist ein work in progress – ich bin da realistisch." },
-      { value: "D", label: "Bewegung gibt's nur dann, wenn es unbedingt sein muss." },
+      { value: "A", label: "Basically a flexible pretzel – super elastic in all positions." },
+      { value: "B", label: "Solid, but sometimes I creak when getting up like a wooden chair." },
+      { value: "C", label: "My body is a work in progress – I'm being realistic here." },
+      { value: "D", label: "Movement only happens when absolutely necessary." },
     ],
   },
   {
     id: "q2",
-    question: "Wie läuft's bei dir mit Verletzungen oder Einschränkungen?",
+    question: "How are things with injuries or limitations?",
     options: [
-      { value: "A", label: "Momentan hab ich keine akuten oder chronischen Verletzungen." },
-      { value: "B", label: "Uff – meine Schulter erzählt noch vom Festival '18." },
-      { value: "C", label: "Mein Körper kommt mir derzeit wie eine chronische Baustelle vor." },
-      { value: "D", label: "Ich bin aktuell völlig out of order — aber ich will zurück ins Game." },
+      { value: "A", label: "Currently I have no acute or chronic injuries." },
+      { value: "B", label: "Oof – my shoulder still tells stories from Festival '18." },
+      { value: "C", label: "My body currently feels like a chronic construction site." },
+      { value: "D", label: "I'm currently completely out of order – but I want back in the game." },
     ],
   },
   {
     id: "q3",
-    question: "Dein Commitment-Level zu Yoga?",
+    question: "Your commitment level to yoga?",
     options: [
-      { value: "A", label: "Situationship-Yogi. Ich und Yoga waren immer schon on-off." },
-      { value: "B", label: "Yoga war Liebe auf den ersten Blick. Ich bin vollkommen committed!" },
-      { value: "C", label: "YouTube-Yoga und ich haben eine intensive Fernbeziehung." },
-      { value: "D", label: "Ich schau mal. Ich hab gehört es gibt Snacks und Tee nach der Klasse." },
+      { value: "A", label: "Situationship-Yogi. Me and yoga have always been on-off." },
+      { value: "B", label: "Yoga was love at first sight. I'm fully committed!" },
+      { value: "C", label: "YouTube yoga and I have an intense long-distance relationship." },
+      { value: "D", label: "I'll check it out. I heard there are snacks and tea after class." },
     ],
   },
   {
     id: "q4",
-    question: "Welche Vibes spürst du, wenn du an Yoga denkst?",
+    question: "What vibes do you feel when you think about yoga?",
     options: [
-      { value: "A", label: "Faszien-Liebe: Entkrampfen, durchatmen, alles loslassen!" },
-      { value: "B", label: "Power-Mover: Schwitzen, stretchen, strong AF werden." },
-      { value: "C", label: "Slow-Flow: Ich will flowen und chillen." },
-      { value: "D", label: "Zen-Seeker: Ich brauche mehr im Leben — vielleicht ist es Yoga." },
+      { value: "A", label: "Fascia-Love: Unwind, breathe deep, let everything go!" },
+      { value: "B", label: "Power-Mover: Sweat, stretch, get strong AF." },
+      { value: "C", label: "Slow-Flow: I want to flow and chill." },
+      { value: "D", label: "Zen-Seeker: I need more in life – maybe it's yoga." },
     ],
   },
   {
     id: "q5",
-    question: "Wie willst du dein Yoga erleben?",
+    question: "How do you want to experience your yoga?",
     options: [
-      { value: "A", label: "Kollektiver Vibe like a Sunday Brunch – nur mit Asanas." },
-      { value: "B", label: "Mat Queen: Ich bleibe auf meiner Matte, alles andere blende ich aus." },
-      { value: "C", label: "Zen-Master: Hauptsache gemütlich, langsamer und tiefer." },
-      { value: "D", label: "Ich brauch klare Ansagen – step by step, sonst verlauf ich mich." },
+      { value: "A", label: "Collective vibe like a Sunday Brunch – just with asanas." },
+      { value: "B", label: "Mat Queen: I stay on my mat, blocking out everything else." },
+      { value: "C", label: "Zen-Master: Main thing is cozy, slower and deeper." },
+      { value: "D", label: "I need clear instructions – step by step, or I get lost." },
     ],
   },
 ];
@@ -110,26 +110,26 @@ const QuestionnaireV1 = () => {
         <div className="flex items-center justify-between mb-6">
           <Button variant="ghost" size="sm" onClick={() => navigate("/")}>
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Zurück zur Übersicht
+            Back to Overview
           </Button>
           <VersionBadge version="V1" label="Baseline" />
         </div>
 
         <FlowAnnotation
           step={1}
-          title="Datenerfassung"
-          description="Standard-Fragebogen ohne expliziten Datenschutzhinweis oder Einwilligungsvalidierung"
+          title="Data Collection"
+          description="Standard questionnaire without explicit privacy notice or consent validation"
         >
           <Card className="shadow-card">
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <FileText className="h-5 w-5 text-muted-foreground" />
                 <CardTitle className="text-xl font-heading">
-                  Benutzer-Fragebogen
+                  User Questionnaire
                 </CardTitle>
               </div>
               <CardDescription>
-                Frage {currentQuestion + 1} von {questions.length}
+                Question {currentQuestion + 1} of {questions.length}
               </CardDescription>
               <Progress value={progress} className="h-1.5 mt-3" />
             </CardHeader>
@@ -167,7 +167,7 @@ const QuestionnaireV1 = () => {
               {isLastQuestion && (
                 <div className="space-y-3 pt-4 border-t border-border">
                   <p className="text-xs text-muted-foreground">
-                    Bitte bestätige die folgenden Optionen:
+                    Please confirm the following options:
                   </p>
                   <div className="flex items-start space-x-2">
                     <Checkbox 
@@ -177,7 +177,7 @@ const QuestionnaireV1 = () => {
                     />
                     <Label htmlFor="marketing" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
                       {/* ETHICAL VIOLATION: Vague, confusing consent language */}
-                      Ja, ich möchte personalisierte Angebote, Neuigkeiten und Partnerinhalte per E-Mail erhalten und stimme der Verarbeitung meiner Daten zu Marketingzwecken zu.
+                      Yes, I would like to receive personalized offers, news and partner content via email and agree to the processing of my data for marketing purposes.
                     </Label>
                   </div>
                   <div className="flex items-start space-x-2">
@@ -188,7 +188,7 @@ const QuestionnaireV1 = () => {
                     />
                     <Label htmlFor="datashare" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
                       {/* ETHICAL VIOLATION: Bundled consent for data sharing */}
-                      Ich stimme zu, dass meine Daten mit ausgewählten Partnern geteilt werden können, um mein Erlebnis zu verbessern.
+                      I agree that my data may be shared with selected partners to improve my experience.
                     </Label>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ const QuestionnaireV1 = () => {
                   className="flex-1"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Zurück
+                  Back
                 </Button>
                 {/* ETHICAL VIOLATION: No skip option, forced progression */}
                 <Button
@@ -212,10 +212,10 @@ const QuestionnaireV1 = () => {
                   className="flex-1"
                 >
                   {isLastQuestion ? (
-                    "Ergebnisse anzeigen"
+                    "View Results"
                   ) : (
                     <>
-                      Weiter
+                      Next
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </>
                   )}
@@ -228,10 +228,9 @@ const QuestionnaireV1 = () => {
         {/* Annotation note */}
         <div className="mt-6 p-4 bg-muted/50 rounded border border-border">
           <p className="text-xs text-muted-foreground">
-            <strong className="text-foreground">V1 Hinweis:</strong> Diese Baseline-Implementierung 
-            erfasst Benutzerdaten sofort ohne explizite Datenschutzoffenlegung, verwendet 
-            vorab angekreuzte Einwilligungsboxen (Dark Pattern) und bietet keine Möglichkeit, 
-            Fragen zu überspringen.
+            <strong className="text-foreground">V1 Note:</strong> This baseline implementation 
+            collects user data immediately without explicit privacy disclosure, uses 
+            pre-checked consent boxes (dark pattern), and provides no option to skip questions.
           </p>
         </div>
       </div>
