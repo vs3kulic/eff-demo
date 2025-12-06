@@ -166,7 +166,7 @@ const QuestionnaireV1 = () => {
               {/* ETHICAL VIOLATION: Pre-checked consent boxes on last question (dark pattern) */}
               {isLastQuestion && (
                 <div className="space-y-3 pt-4 border-t border-border">
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Please confirm the following options:
                   </p>
                   <div className="flex items-start space-x-2">
@@ -175,7 +175,7 @@ const QuestionnaireV1 = () => {
                       checked={marketingConsent}
                       onCheckedChange={(checked) => setMarketingConsent(checked as boolean)}
                     />
-                    <Label htmlFor="marketing" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                    <Label htmlFor="marketing" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       {/* ETHICAL VIOLATION: Vague, confusing consent language */}
                       Yes, I would like to receive personalized offers, news and partner content via email and agree to the processing of my data for marketing purposes.
                     </Label>
@@ -186,7 +186,7 @@ const QuestionnaireV1 = () => {
                       checked={dataShareConsent}
                       onCheckedChange={(checked) => setDataShareConsent(checked as boolean)}
                     />
-                    <Label htmlFor="datashare" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                    <Label htmlFor="datashare" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       {/* ETHICAL VIOLATION: Bundled consent for data sharing */}
                       I agree that my data may be shared with selected partners to improve my experience.
                     </Label>
@@ -227,7 +227,7 @@ const QuestionnaireV1 = () => {
 
         {/* Annotation note */}
         <div className="mt-6 p-4 bg-muted/50 rounded border border-border">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             <strong className="text-foreground">V1 Note:</strong> This baseline implementation 
             collects user data immediately without explicit privacy disclosure, uses 
             pre-checked consent boxes (dark pattern), and provides no option to skip questions.
