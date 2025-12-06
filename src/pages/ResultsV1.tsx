@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Sparkles, FileText } from "lucide-react";
-import { VersionBadge, FlowAnnotation } from "@/components/FlowAnnotation";
+import { VersionBadge } from "@/components/FlowAnnotation";
 
 type Answers = Record<string, string>;
 
@@ -123,60 +123,48 @@ const ResultsV1 = () => {
           </Card>
 
           {/* Recommended Classes */}
-          <FlowAnnotation
-            step={2}
-            title="Algorithm-Driven Results"
-            description="Standard recommendation logic without bias screening or filter-bubble analysis"
-          >
-            <Card className="shadow-card">
-              <CardHeader>
-                <CardTitle className="text-lg font-heading">Recommended Classes</CardTitle>
-                <CardDescription>{recommendations.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {recommendations.classes.map((className, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between p-3 rounded border border-border"
-                    >
-                      <h4 className="font-medium">{className}</h4>
-                      <Badge variant="secondary">
-                        Recommended
-                      </Badge>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </FlowAnnotation>
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle className="text-lg font-heading">Recommended Classes</CardTitle>
+              <CardDescription>{recommendations.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {recommendations.classes.map((className, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 rounded border border-border"
+                  >
+                    <h4 className="font-medium">{className}</h4>
+                    <Badge variant="secondary">
+                      Recommended
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* AI Tips */}
-          <FlowAnnotation
-            step={3}
-            title="AI-Generated Content"
-            description="Tips generated without explicit AI labeling or content moderation disclosure"
-          >
-            <Card className="shadow-card">
-              <CardHeader>
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-primary" />
-                  <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
-                </div>
-                <CardDescription>Personalized guidance for your practice</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {aiTips.map((tip, index) => (
-                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                      <span className="text-primary mt-0.5">•</span>
-                      <span>{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </FlowAnnotation>
+          <Card className="shadow-card">
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
+              </div>
+              <CardDescription>Personalized guidance for your practice</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                {aiTips.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
 
           {/* User Preferences Summary */}
           <Card className="shadow-card">
