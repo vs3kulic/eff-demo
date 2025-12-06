@@ -2,89 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Academic/Journal-Inspired Design System for DSR Paper Artifact
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Calming yoga-inspired color palette */
-    --background: 40 20% 97%;
-    --foreground: 160 30% 15%;
+    /* Academic color palette - neutral, professional */
+    --background: 40 15% 98%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 160 30% 15%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 160 30% 15%;
+    --popover-foreground: 220 15% 15%;
 
-    /* Emerald green primary */
-    --primary: 160 65% 45%;
+    /* Deep academic blue primary */
+    --primary: 220 60% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 160 45% 90%;
+    --primary-soft: 220 40% 95%;
 
-    /* Sage secondary */
-    --secondary: 145 25% 88%;
-    --secondary-foreground: 160 30% 20%;
+    /* Warm neutral secondary */
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 220 15% 20%;
 
-    /* Muted earth tones */
-    --muted: 40 20% 94%;
-    --muted-foreground: 160 15% 40%;
+    /* Muted tones */
+    --muted: 40 15% 94%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Warm accent */
-    --accent: 35 85% 65%;
-    --accent-foreground: 160 30% 15%;
+    /* Accent for ethical elements - teal/green for ethics */
+    --accent: 165 50% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Ethics-specific colors */
+    --ethics-privacy: 200 70% 45%;
+    --ethics-autonomy: 280 50% 45%;
+    --ethics-fairness: 45 85% 45%;
+    --ethics-transparency: 165 60% 40%;
+    --ethics-dignity: 340 55% 45%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 145 20% 88%;
-    --input: 145 20% 90%;
-    --ring: 160 65% 45%;
+    --border: 220 15% 88%;
+    --input: 220 15% 90%;
+    --ring: 220 60% 35%;
 
-    --radius: 0.75rem;
+    --radius: 0.375rem;
 
-    /* Gradients for hero sections */
-    --gradient-hero: linear-gradient(135deg, hsl(160 65% 45%) 0%, hsl(175 60% 50%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(160 45% 95%) 0%, hsl(40 20% 97%) 100%);
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(160 65% 45% / 0.1);
-    --shadow-card: 0 2px 12px -2px hsl(160 30% 15% / 0.08);
+    /* Academic styling */
+    --shadow-subtle: 0 1px 3px 0 hsl(220 15% 15% / 0.05);
+    --shadow-card: 0 2px 8px -2px hsl(220 15% 15% / 0.08);
 
     /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.2s ease;
   }
 
   .dark {
-    --background: 160 30% 8%;
-    --foreground: 145 25% 95%;
+    --background: 220 15% 8%;
+    --foreground: 40 15% 95%;
 
-    --card: 160 25% 12%;
-    --card-foreground: 145 25% 95%;
+    --card: 220 15% 12%;
+    --card-foreground: 40 15% 95%;
 
-    --popover: 160 25% 12%;
-    --popover-foreground: 145 25% 95%;
+    --popover: 220 15% 12%;
+    --popover-foreground: 40 15% 95%;
 
-    --primary: 160 60% 55%;
-    --primary-foreground: 160 30% 8%;
-    --primary-soft: 160 40% 20%;
+    --primary: 220 55% 55%;
+    --primary-foreground: 220 15% 8%;
+    --primary-soft: 220 30% 20%;
 
-    --secondary: 160 20% 18%;
-    --secondary-foreground: 145 25% 95%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 15% 95%;
 
-    --muted: 160 20% 15%;
-    --muted-foreground: 145 15% 60%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 40 10% 60%;
 
-    --accent: 35 75% 55%;
-    --accent-foreground: 160 30% 8%;
+    --accent: 165 45% 45%;
+    --accent-foreground: 220 15% 8%;
+
+    --ethics-privacy: 200 60% 55%;
+    --ethics-autonomy: 280 45% 55%;
+    --ethics-fairness: 45 75% 55%;
+    --ethics-transparency: 165 50% 50%;
+    --ethics-dignity: 340 50% 55%;
 
     --destructive: 0 62% 45%;
-    --destructive-foreground: 145 25% 95%;
+    --destructive-foreground: 40 15% 95%;
 
-    --border: 160 20% 20%;
-    --input: 160 20% 18%;
-    --ring: 160 60% 55%;
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 220 55% 55%;
   }
 }
 
@@ -94,6 +103,57 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Academic annotation callouts */
+  .annotation {
+    @apply relative;
+  }
+
+  .annotation::before {
+    content: attr(data-step);
+    @apply absolute -left-8 top-0 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-semibold flex items-center justify-center;
+  }
+
+  /* Ethics label styles */
+  .ethics-label {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-medium rounded border;
+  }
+
+  .ethics-label--privacy {
+    @apply bg-[hsl(200_70%_95%)] text-[hsl(200_70%_30%)] border-[hsl(200_70%_80%)];
+  }
+
+  .ethics-label--autonomy {
+    @apply bg-[hsl(280_50%_95%)] text-[hsl(280_50%_30%)] border-[hsl(280_50%_80%)];
+  }
+
+  .ethics-label--fairness {
+    @apply bg-[hsl(45_85%_92%)] text-[hsl(45_85%_30%)] border-[hsl(45_85%_70%)];
+  }
+
+  .ethics-label--transparency {
+    @apply bg-[hsl(165_60%_93%)] text-[hsl(165_60%_28%)] border-[hsl(165_60%_75%)];
+  }
+
+  .ethics-label--dignity {
+    @apply bg-[hsl(340_55%_95%)] text-[hsl(340_55%_30%)] border-[hsl(340_55%_80%)];
+  }
+
+  /* Section numbering for academic structure */
+  .section-number {
+    @apply text-muted-foreground font-mono text-sm mr-2;
+  }
+
+  /* Figure/table captions */
+  .figure-caption {
+    @apply text-sm text-muted-foreground italic mt-2 text-center;
   }
 }
