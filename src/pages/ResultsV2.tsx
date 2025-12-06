@@ -133,7 +133,7 @@ const ResultsV2 = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg font-heading">Recommended Classes</CardTitle>
-                  <EthicsLabels values={["fairness", "autonomy"]} />
+                  <EthicsLabels values={["fairness", "utility"]} />
                 </div>
                 <CardDescription>{recommendations.description}</CardDescription>
               </CardHeader>
@@ -215,7 +215,7 @@ const ResultsV2 = () => {
                     <Sparkles className="h-4 w-4 text-accent" />
                     <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
                   </div>
-                  <EthicsLabel value="transparency" />
+                  <EthicsLabel value="explainability" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -231,7 +231,7 @@ const ResultsV2 = () => {
 
                 {/* Autonomy disclosure (US-03) */}
                 <div className="flex items-start gap-2 p-3 bg-accent/5 border border-accent/20 rounded text-xs">
-                  <EthicsLabel value="autonomy" />
+                  <EthicsLabel value="safety" />
                   <div className="text-muted-foreground ml-2">
                     Tips are strictly limited to yoga technique and mindset. <strong className="text-foreground">No commercial calls-to-action</strong> (subscriptions, merchandise, premium features) are included.
                   </div>
@@ -275,7 +275,7 @@ const ResultsV2 = () => {
                     <Shield className="h-4 w-4 text-accent" />
                     <CardTitle className="text-lg font-heading">Your Data Rights</CardTitle>
                   </div>
-                  <EthicsLabels values={["privacy", "dignity"]} />
+                  <EthicsLabels values={["privacy", "safety"]} />
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">

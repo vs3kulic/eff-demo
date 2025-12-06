@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { Lock, User, Scale, Eye, Heart } from "lucide-react";
+import { Lock, Scale, Eye, ShieldCheck, Target } from "lucide-react";
 
-export type EthicsValue = "privacy" | "autonomy" | "fairness" | "transparency" | "dignity";
+export type EthicsValue = "utility" | "fairness" | "privacy" | "explainability" | "safety";
 
 interface EthicsLabelProps {
   value: EthicsValue;
@@ -10,11 +10,11 @@ interface EthicsLabelProps {
 }
 
 const ethicsConfig: Record<EthicsValue, { label: string; icon: typeof Lock }> = {
-  privacy: { label: "Privacy", icon: Lock },
-  autonomy: { label: "Autonomy", icon: User },
+  utility: { label: "Utility", icon: Target },
   fairness: { label: "Fairness", icon: Scale },
-  transparency: { label: "Transparency", icon: Eye },
-  dignity: { label: "Dignity", icon: Heart },
+  privacy: { label: "Privacy", icon: Lock },
+  explainability: { label: "Explainability", icon: Eye },
+  safety: { label: "Safety", icon: ShieldCheck },
 };
 
 export const EthicsLabel = ({ value, className, showIcon = true }: EthicsLabelProps) => {

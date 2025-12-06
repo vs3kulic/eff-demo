@@ -122,7 +122,7 @@ const QuestionnaireV2 = () => {
                     Privacy Notice
                   </CardTitle>
                 </div>
-                <EthicsLabels values={["privacy", "transparency", "autonomy"]} />
+                <EthicsLabels values={["privacy", "explainability", "utility"]} />
               </CardHeader>
 
               <CardContent className="space-y-6">

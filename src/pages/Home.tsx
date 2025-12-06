@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { EthicsLabels, type EthicsValue } from "@/components/EthicsLabel";
 import { VersionBadge } from "@/components/FlowAnnotation";
 
-const v2EthicsValues: EthicsValue[] = ["privacy", "autonomy", "fairness", "transparency", "dignity"];
+const v2EthicsValues: EthicsValue[] = ["utility", "fairness", "privacy", "explainability", "safety"];
 
 const Home = () => {
   const navigate = useNavigate();
