@@ -154,7 +154,7 @@ const QuestionnaireV1 = () => {
                       <RadioGroupItem value={option.value} id={`${currentQ.id}-${option.value}`} />
                       <Label
                         htmlFor={`${currentQ.id}-${option.value}`}
-                        className="flex-1 cursor-pointer text-sm"
+                        className="flex-1 cursor-pointer text-base"
                       >
                         {option.label}
                       </Label>
