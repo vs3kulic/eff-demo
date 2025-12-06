@@ -97,14 +97,6 @@ const Home = () => {
                     </li>
                   </ul>
                 </div>
-                <Button 
-                  onClick={() => navigate('/questionnaire/v1')}
-                  variant="outline"
-                  className="w-full"
-                >
-                  Start V1 Demonstration
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
               </CardContent>
             </Card>
 
@@ -148,15 +140,27 @@ const Home = () => {
                   <p className="font-medium text-sm text-foreground">Ethical Values Applied:</p>
                   <EthicsLabels values={v2EthicsValues} />
                 </div>
-                <Button 
-                  onClick={() => navigate('/questionnaire/v2')}
-                  className="w-full"
-                >
-                  Start V2 Demonstration
-                  <ArrowRight className="h-4 w-4 ml-2" />
-                </Button>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Buttons Row */}
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            <Button 
+              onClick={() => navigate('/questionnaire/v1')}
+              variant="outline"
+              className="w-full"
+            >
+              Start V1 Demonstration
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Button>
+            <Button 
+              onClick={() => navigate('/questionnaire/v2')}
+              className="w-full"
+            >
+              Start V2 Demonstration
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Button>
           </div>
         </section>
 
