@@ -27,6 +27,20 @@ const recommendationsMap: Record<string, { classes: string[]; description: strin
   },
 };
 
+// Classes contraindicated for specific limitations (US-02 Safety)
+const contraindicatedClasses: Record<string, string[]> = {
+  back: ["Power Yoga", "Inversions & Backbends", "Ashtanga Primary Series"],
+  joints: ["Power Yoga", "Arm Balance Workshop", "Ashtanga Primary Series"],
+  pregnancy: ["Power Yoga", "Inversions & Backbends", "Arm Balance Workshop", "Ashtanga Primary Series"],
+};
+
+// Safe alternatives for users with limitations
+const safeAlternatives: Record<string, string[]> = {
+  back: ["Gentle Restorative", "Chair Yoga", "Yin Yoga"],
+  joints: ["Gentle Hatha", "Restorative Flow", "Seated Yoga"],
+  pregnancy: ["Prenatal Yoga", "Gentle Restorative", "Prenatal Meditation"],
+};
+
 const aiTipsWithModeration = [
   { tip: "Remember to listen to your body and never push through pain", verified: true },
   { tip: "Consistency is more important than intensity – practice regularly", verified: true },
@@ -46,7 +60,24 @@ const ResultsV2 = () => {
     return null;
   }
 
-  const recommendations = recommendationsMap[answers.experience];
+  const baseRecommendations = recommendationsMap[answers.experience];
+  const userLimitation = answers.limitations || "none";
+  
+  // Filter out contraindicated classes and add safe alternatives (US-02 Safety)
+  const getFilteredClasses = () => {
+    if (userLimitation === "none") {
+      return baseRecommendations.classes;
+    }
+    const contraindicated = contraindicatedClasses[userLimitation] || [];
+    const filtered = baseRecommendations.classes.filter(c => !contraindicated.includes(c));
+    const alternatives = safeAlternatives[userLimitation] || [];
+    return [...filtered, ...alternatives].slice(0, 3);
+  };
+
+  const recommendations = {
+    classes: getFilteredClasses(),
+    description: baseRecommendations.description,
+  };
 
   const handleNewsletterSignup = () => {
     if (newsletterOptIn) {
@@ -107,6 +138,29 @@ const ResultsV2 = () => {
                 <CardDescription>{recommendations.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
+                {/* Recommendation explanation (US-02 Transparency) */}
+                <div className="flex items-start gap-2 p-3 bg-accent/10 border border-accent/30 rounded text-sm">
+                  <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+                  <div>
+                    <strong className="text-foreground">Recommended based on:</strong>{" "}
+                    <span className="text-muted-foreground">
+                      your goals ({answers.goals}), experience level ({answers.experience}), 
+                      and reported limitations ({userLimitation === "none" ? "none reported" : userLimitation}).
+                    </span>
+                  </div>
+                </div>
+
+                {/* Safety notice for limitations */}
+                {userLimitation !== "none" && (
+                  <div className="flex items-start gap-2 p-3 bg-yellow-50 dark:bg-yellow-950/20 border border-yellow-200 dark:border-yellow-900 rounded text-xs">
+                    <AlertTriangle className="h-4 w-4 text-yellow-600 dark:text-yellow-500 mt-0.5 shrink-0" />
+                    <div className="text-muted-foreground">
+                      <strong className="text-foreground">Safety Applied:</strong> Classes contraindicated 
+                      for {userLimitation} conditions have been excluded. Only safe alternatives are shown.
+                    </div>
+                  </div>
+                )}
+
                 {/* Fairness notice */}
                 <div className="flex items-start gap-2 p-3 bg-accent/5 border border-accent/20 rounded text-xs">
                   <CheckCircle2 className="h-4 w-4 text-accent mt-0.5 shrink-0" />
@@ -175,6 +229,14 @@ const ResultsV2 = () => {
                   </div>
                 </div>
 
+                {/* Autonomy disclosure (US-03) */}
+                <div className="flex items-start gap-2 p-3 bg-accent/5 border border-accent/20 rounded text-xs">
+                  <EthicsLabel value="autonomy" />
+                  <div className="text-muted-foreground ml-2">
+                    Tips are strictly limited to yoga technique and mindset. <strong className="text-foreground">No commercial calls-to-action</strong> (subscriptions, merchandise, premium features) are included.
+                  </div>
+                </div>
+
                 <ul className="space-y-2">
                   {aiTipsWithModeration.map((item, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm">
@@ -217,7 +279,7 @@ const ResultsV2 = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Newsletter opt-in */}
+                {/* Newsletter opt-in (US-04) */}
                 <div className="p-4 rounded border border-border bg-muted/30">
                   <div className="flex items-start space-x-3">
                     <Checkbox
@@ -229,16 +291,39 @@ const ResultsV2 = () => {
                       <Label htmlFor="newsletter" className="text-sm font-medium cursor-pointer">
                         Subscribe to wellness tips newsletter
                       </Label>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Opt-in only (unchecked by default). Email deleted after 30 days without consent renewal.
-                      </p>
+                      {/* Explicit content types (US-04 Explainability) */}
+                      <div className="text-xs text-muted-foreground mt-2 space-y-1">
+                        <p className="font-medium text-foreground">What you will receive:</p>
+                        <ul className="list-disc list-inside space-y-0.5 ml-1">
+                          <li>Weekly yoga tips and practice guidance</li>
+                          <li>Monthly studio schedule updates</li>
+                          <li>Occasional workshop announcements (max 2/month)</li>
+                        </ul>
+                        <p className="mt-2 italic">
+                          Opt-in only (unchecked by default). Email deleted after 30 days without double opt-in confirmation.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  {newsletterOptIn && (
-                    <Button onClick={handleNewsletterSignup} size="sm" className="mt-3">
+                  {/* Equal prominence buttons (US-04 Safety - no dark patterns) */}
+                  <div className="flex gap-3 mt-4">
+                    <Button 
+                      onClick={handleNewsletterSignup} 
+                      size="sm" 
+                      disabled={!newsletterOptIn}
+                      className="flex-1"
+                    >
                       Confirm Subscription
                     </Button>
-                  )}
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={() => setNewsletterOptIn(false)}
+                      className="flex-1"
+                    >
+                      No Thanks
+                    </Button>
+                  </div>
                 </div>
 
                 {/* Harm clause for consent */}
@@ -282,6 +367,10 @@ const ResultsV2 = () => {
                 <div>
                   <span className="text-muted-foreground">Goals</span>
                   <p className="font-medium capitalize">{answers.goals}</p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">Limitations</span>
+                  <p className="font-medium capitalize">{answers.limitations === "none" ? "None reported" : answers.limitations}</p>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Intensity</span>

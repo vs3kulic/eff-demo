@@ -33,6 +33,16 @@ const questions = [
     ],
   },
   {
+    id: "limitations",
+    question: "Do you have any physical limitations or injuries?",
+    options: [
+      { value: "none", label: "None – I have no current limitations" },
+      { value: "back", label: "Back issues (pain, herniated disc, etc.)" },
+      { value: "joints", label: "Joint issues (knees, wrists, shoulders)" },
+      { value: "pregnancy", label: "Pregnancy" },
+    ],
+  },
+  {
     id: "intensity",
     question: "What intensity level do you prefer?",
     options: [
