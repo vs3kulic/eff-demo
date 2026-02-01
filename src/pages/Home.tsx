@@ -40,7 +40,7 @@ const Home = () => {
           <Card className="shadow-card">
             <CardContent className="pt-6">
               <p className="text-muted-foreground leading-relaxed">
-                This artifact demonstrates the application of the Ethics Filter Framework (EFF) 
+                The Yogi Application demonstrates the application of the Ethics Filter Framework (EFF) 
                 to integrate Value-Based Engineering into agile requirements. Two versions of a yoga 
                 recommendation system are presented: <strong>Version 1 (Baseline)</strong> implements 
                 functional requirements without explicit ethical analysis, while <strong>Version 2 
@@ -53,10 +53,41 @@ const Home = () => {
 
         <Separator className="my-8" />
 
-        {/* Version Comparison */}
+        {/* User Stories Section */}
+        <section className="mb-12">
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="section-number">2.</span>
+            <h2 className="text-2xl font-heading font-semibold">User Stories</h2>
+          </div>
+          <Card className="shadow-card">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <BookOpen className="h-8 w-8 text-primary shrink-0 mt-1" />
+                <div className="flex-1">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    View the complete user story repository documenting the functional and ethical 
+                    requirements for both versions. Includes harm clauses and acceptance criteria 
+                    for the Ethics Filter Framework implementation.
+                  </p>
+                  <Button 
+                    variant="outline"
+                    onClick={() => navigate('/user-stories')}
+                  >
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    View User Stories (Appendix A)
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <Separator className="my-8" />
+
+        {/* Implementation Comparison */}
         <section className="mb-12">
           <div className="flex items-baseline gap-2 mb-6">
-            <span className="section-number">2.</span>
+            <span className="section-number">3.</span>
             <h2 className="text-2xl font-heading font-semibold">Implementation Comparison</h2>
           </div>
 
@@ -166,37 +197,6 @@ const Home = () => {
 
         <Separator className="my-8" />
 
-        {/* User Stories Link */}
-        <section className="mb-12">
-          <div className="flex items-baseline gap-2 mb-4">
-            <span className="section-number">3.</span>
-            <h2 className="text-2xl font-heading font-semibold">Requirements Documentation</h2>
-          </div>
-          <Card className="shadow-card">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <BookOpen className="h-8 w-8 text-primary shrink-0 mt-1" />
-                <div className="flex-1">
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    View the complete user story repository documenting the functional and ethical 
-                    requirements for both versions. Includes harm clauses and acceptance criteria 
-                    for the Ethics Filter Framework implementation.
-                  </p>
-                  <Button 
-                    variant="outline"
-                    onClick={() => navigate('/user-stories')}
-                  >
-                    <BookOpen className="h-4 w-4 mr-2" />
-                    View User Stories (Appendix A)
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <Separator className="my-8" />
-
         {/* Research Context */}
         <section>
           <div className="flex items-baseline gap-2 mb-4">
@@ -206,7 +206,7 @@ const Home = () => {
           <Card className="shadow-card bg-muted/30">
             <CardContent className="pt-6">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                This artifact serves as a Level 1 (L1) instantiation for Design Science Research, 
+                The Yogi Application serves as a Level 1 (L1) instantiation for Design Science Research, 
                 demonstrating the practical application of the Ethics Filter Framework. The comparison 
                 between V1 and V2 tests whether EFF successfully integrates Value-Based Engineering 
                 into agile requirements without impeding agile efficiency.
@@ -220,7 +220,7 @@ const Home = () => {
       <footer className="border-t border-border bg-card mt-12">
         <div className="container mx-auto px-4 py-6 text-center">
           <p className="text-sm text-muted-foreground">
-            DSR Artifact • Ethics Filter Framework Demonstration
+            DSR Research • Yogi Application with Ethics Filter Framework
           </p>
         </div>
       </footer>

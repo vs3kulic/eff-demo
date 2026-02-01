@@ -196,7 +196,7 @@ const UserStories = () => {
       <footer className="border-t border-border bg-card mt-12">
         <div className="container mx-auto px-4 py-6 text-center">
           <p className="text-sm text-muted-foreground">
-            DSR Artifact • Ethics Filter Framework Demonstration
+            DSR Research • Yogi Application with Ethics Filter Framework
           </p>
         </div>
       </footer>
