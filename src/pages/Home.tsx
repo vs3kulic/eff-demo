@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, FileText, FlaskConical, Shield } from "lucide-react";
+import { ArrowRight, BookOpen, FileText, FlaskConical, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { EthicsLabels, type EthicsValue } from "@/components/EthicsLabel";
 import { VersionBadge } from "@/components/FlowAnnotation";
@@ -166,10 +166,41 @@ const Home = () => {
 
         <Separator className="my-8" />
 
+        {/* User Stories Link */}
+        <section className="mb-12">
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="section-number">3.</span>
+            <h2 className="text-2xl font-heading font-semibold">Requirements Documentation</h2>
+          </div>
+          <Card className="shadow-card">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <BookOpen className="h-8 w-8 text-primary shrink-0 mt-1" />
+                <div className="flex-1">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    View the complete user story repository documenting the functional and ethical 
+                    requirements for both versions. Includes harm clauses and acceptance criteria 
+                    for the Ethics Filter Framework implementation.
+                  </p>
+                  <Button 
+                    variant="outline"
+                    onClick={() => navigate('/user-stories')}
+                  >
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    View User Stories (Appendix A)
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <Separator className="my-8" />
+
         {/* Research Context */}
         <section>
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="section-number">3.</span>
+            <span className="section-number">4.</span>
             <h2 className="text-2xl font-heading font-semibold">Research Context</h2>
           </div>
           <Card className="shadow-card bg-muted/30">
