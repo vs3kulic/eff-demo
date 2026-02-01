@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, Shield, Sparkles, AlertTriangle, Trash2, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { VersionBadge } from "@/components/FlowAnnotation";
-import { EthicsLabel, EthicsLabels } from "@/components/EthicsLabel";
+
 
 type Answers = Record<string, string>;
 
@@ -163,10 +163,7 @@ const ResultsV2 = () => {
           {/* Recommended Classes */}
           <Card className="shadow-card border-accent/30">
             <CardHeader>
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-lg font-heading">Recommended Classes</CardTitle>
-                <EthicsLabels values={["utility", "fairness"]} />
-              </div>
+              <CardTitle className="text-lg font-heading">Recommended Classes</CardTitle>
               <CardDescription>{recommendations.description}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -210,12 +207,9 @@ const ResultsV2 = () => {
           {/* AI Tips with explicit labeling */}
           <Card className="shadow-card border-accent/30">
             <CardHeader>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-accent" />
-                  <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
-                </div>
-                <EthicsLabel value="explainability" />
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <CardTitle className="text-lg font-heading">Wellness Tips</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -274,12 +268,9 @@ const ResultsV2 = () => {
           {/* Data Controls */}
           <Card className="shadow-card border-accent/30">
             <CardHeader>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-accent" />
-                  <CardTitle className="text-lg font-heading">Your Data Rights</CardTitle>
-                </div>
-                <EthicsLabels values={["privacy", "safety"]} />
+              <div className="flex items-center gap-2">
+                <Shield className="h-4 w-4 text-accent" />
+                <CardTitle className="text-lg font-heading">Your Data Rights</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">

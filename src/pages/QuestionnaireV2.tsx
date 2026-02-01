@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Shield, CheckCircle2, SkipForward } from "lucide-react";
 import { VersionBadge } from "@/components/FlowAnnotation";
-import { EthicsLabel, EthicsLabels } from "@/components/EthicsLabel";
+
 
 type Answer = string;
 
@@ -144,9 +144,6 @@ const QuestionnaireV2 = () => {
               <CardDescription>
                 Understanding how your data is handled
               </CardDescription>
-              <div className="pt-2">
-                <EthicsLabels values={["privacy", "explainability"]} />
-              </div>
             </CardHeader>
 
             <CardContent className="space-y-6">
@@ -257,7 +254,7 @@ const QuestionnaireV2 = () => {
                   <span className="ml-2 text-accent">(Optional)</span>
                 )}
               </CardDescription>
-              <EthicsLabel value={currentQ.essential ? "utility" : "fairness"} />
+              
             </div>
             <Progress value={progress} className="h-1.5 mt-3" />
           </CardHeader>
@@ -271,7 +268,6 @@ const QuestionnaireV2 = () => {
               {/* Safety note for injury question */}
               {currentQ.safetyNote && (
                 <div className="flex items-center gap-2 p-2 bg-accent/5 rounded text-sm text-muted-foreground">
-                  <EthicsLabel value="safety" />
                   <span>{currentQ.safetyNote}</span>
                 </div>
               )}
