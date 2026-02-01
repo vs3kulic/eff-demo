@@ -4,10 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ArrowRight, BookOpen, FileText, FlaskConical, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { EthicsLabels, type EthicsValue } from "@/components/EthicsLabel";
 import { VersionBadge } from "@/components/FlowAnnotation";
-
-const v2EthicsValues: EthicsValue[] = ["utility", "fairness", "privacy", "explainability", "safety"];
 
 const Home = () => {
   const navigate = useNavigate();
@@ -113,30 +110,9 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="border-t border-border pt-4">
-                <p className="font-medium text-foreground text-sm mb-3">How Your Data is Used</p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="p-4 bg-muted/30 rounded-md">
-                    <p className="font-medium text-foreground text-sm mb-2">Version 1 (Baseline):</p>
-                    <p className="text-muted-foreground text-sm">
-                      Your questionnaire responses and email are stored indefinitely to personalize recommendations, 
-                      analyze user behavior, and support marketing communications.
-                    </p>
-                  </div>
-                  <div className="p-4 bg-accent/10 rounded-md border border-accent/20">
-                    <p className="font-medium text-foreground text-sm mb-2">Version 2 (Ethical Enhancement):</p>
-                    <ul className="text-muted-foreground text-sm space-y-1">
-                      <li>• Only data essential for recommendations is collected.</li>
-                      <li>• All data is automatically deleted after 90 days.</li>
-                      <li>• You receive a privacy notice before the questionnaire explaining what data is collected and why.</li>
-                      <li>• Your data is used solely for generating recommendations—not for marketing without separate consent.</li>
-                    </ul>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mt-4 italic">
-                  You will interact with <strong>both versions</strong> during this study and provide feedback on their design and trustworthiness.
-                </p>
-              </div>
+              <p className="text-muted-foreground text-sm mt-4 italic border-t border-border pt-4">
+                You will interact with <strong>both versions</strong> during this study and provide feedback on their design and trustworthiness.
+              </p>
             </CardContent>
           </Card>
         </section>
@@ -256,10 +232,6 @@ const Home = () => {
                       <span>Dark-pattern-free consent (opt-in)</span>
                     </li>
                   </ul>
-                </div>
-                <div className="space-y-3">
-                  <p className="font-medium text-sm text-foreground">Ethical Values Applied:</p>
-                  <EthicsLabels values={v2EthicsValues} />
                 </div>
               </CardContent>
             </Card>
