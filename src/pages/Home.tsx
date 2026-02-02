@@ -67,49 +67,6 @@ const Home = () => {
                 </ul>
               </div>
 
-              <div className="border-t border-border pt-4">
-                <p className="font-medium text-foreground text-sm mb-3">Feature Comparison: Version 1 vs. Version 2</p>
-                <p className="text-muted-foreground text-sm mb-4">This study presents two versions of the Yogi app:</p>
-                <div className="overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="font-semibold">Feature</TableHead>
-                        <TableHead className="font-semibold">Version 1 (Baseline)</TableHead>
-                        <TableHead className="font-semibold">Version 2 (Ethical Enhancement)</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow>
-                        <TableCell className="font-medium">Questionnaire</TableCell>
-                        <TableCell>Collects user data for recommendations</TableCell>
-                        <TableCell>Includes privacy notice explaining data use, purpose, and retention (90 days max)</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">Class Recommendations</TableCell>
-                        <TableCell>Suggests yoga classes based on profile</TableCell>
-                        <TableCell>Filters out contraindicated classes for users with specific injuries/conditions</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">AI-Generated Tips</TableCell>
-                        <TableCell>Provides personalized practice advice</TableCell>
-                        <TableCell>Includes safety disclaimers and encourages consulting instructors for health concerns</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">Newsletter Subscription</TableCell>
-                        <TableCell>Optional signup for updates</TableCell>
-                        <TableCell>Clearly separated from questionnaire; explicit consent required</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell className="font-medium">Data Storage</TableCell>
-                        <TableCell>Stores responses and email for analytics/marketing</TableCell>
-                        <TableCell>Limited retention (90 days), purpose-limited use, users informed upfront</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-
               <p className="text-muted-foreground text-sm mt-4 italic border-t border-border pt-4">
                 You will interact with <strong>both versions</strong> during this study and provide feedback on their design and trustworthiness.
               </p>
@@ -119,10 +76,65 @@ const Home = () => {
 
         <Separator className="my-8" />
 
-        {/* User Stories Section */}
+        {/* Feature Comparison Section */}
         <section className="mb-12">
           <div className="flex items-baseline gap-2 mb-4">
             <span className="section-number">2.</span>
+            <h2 className="text-2xl font-heading font-semibold">Feature Comparison</h2>
+          </div>
+          <Card className="shadow-card">
+            <CardContent className="pt-6">
+              <p className="text-muted-foreground mb-6">
+                This table shows how each feature works in both versions. Version 2 adds ethical safeguards that change how users interact with the app.
+              </p>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="font-semibold">Feature</TableHead>
+                      <TableHead className="font-semibold">Version 1 (Baseline)</TableHead>
+                      <TableHead className="font-semibold">Version 2 (Ethical Enhancement)</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="font-medium">Questionnaire</TableCell>
+                      <TableCell>Collects user data for recommendations</TableCell>
+                      <TableCell>Includes privacy notice explaining data use, purpose, and retention (90 days max)</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Class Recommendations</TableCell>
+                      <TableCell>Suggests yoga classes based on profile</TableCell>
+                      <TableCell>Filters out contraindicated classes for users with specific injuries/conditions</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">AI-Generated Tips</TableCell>
+                      <TableCell>Provides personalized practice advice</TableCell>
+                      <TableCell>Includes safety disclaimers and encourages consulting instructors for health concerns</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Newsletter Subscription</TableCell>
+                      <TableCell>Optional signup for updates</TableCell>
+                      <TableCell>Clearly separated from questionnaire; explicit consent required</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Data Storage</TableCell>
+                      <TableCell>Stores responses and email for analytics/marketing</TableCell>
+                      <TableCell>Limited retention (90 days), purpose-limited use, users informed upfront</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <Separator className="my-8" />
+
+        {/* User Stories Section */}
+        <section className="mb-12">
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="section-number">3.</span>
             <h2 className="text-2xl font-heading font-semibold">User Stories</h2>
           </div>
           <Card className="shadow-card">
@@ -153,7 +165,7 @@ const Home = () => {
         {/* Implementation Comparison */}
         <section className="mb-12">
           <div className="flex items-baseline gap-2 mb-6">
-            <span className="section-number">3.</span>
+            <span className="section-number">4.</span>
             <h2 className="text-2xl font-heading font-semibold">Implementation Comparison</h2>
           </div>
 
@@ -262,7 +274,7 @@ const Home = () => {
         {/* Research Context */}
         <section>
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="section-number">4.</span>
+            <span className="section-number">5.</span>
             <h2 className="text-2xl font-heading font-semibold">Research Context</h2>
           </div>
           <Card className="shadow-card bg-muted/30">
