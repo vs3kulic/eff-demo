@@ -193,21 +193,11 @@ const ResultsV1 = () => {
             </CardContent>
           </Card>
 
-          {/* Annotation note */}
-          <div className="p-4 bg-muted/50 rounded border border-border">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">V1 Note:</strong> This baseline implementation 
-              provides recommendations and AI tips without explicit data control mechanisms, 
-              bias screening, or GDPR compliance features.
-            </p>
-          </div>
-
           {/* Continue to V2 */}
           <Card className="shadow-card border-primary/30 bg-primary/5">
             <CardContent className="pt-6">
               <p className="text-muted-foreground mb-4">
-                You have completed the baseline version. Continue to see how the EFF-enhanced 
-                version handles the same features with ethical considerations.
+                Before moving to Yogi v2, please respond to the questionnaire items.
               </p>
               <Button onClick={() => navigate("/questionnaire/v2")} size="lg" className="w-full">
                 Continue to Yogi v2
