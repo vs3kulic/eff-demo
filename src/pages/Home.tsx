@@ -170,22 +170,25 @@ const Home = () => {
           </div>
           <Card className="shadow-card">
             <CardContent className="pt-6">
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                You will first experience the baseline version (Yogi v1), then continue to the 
-                EFF-enhanced version (Yogi v2). This guided walkthrough helps you compare both 
-                approaches in sequence.
-              </p>
-              <Button 
-                onClick={() => navigate('/questionnaire/v1')}
-                size="lg"
-                className="w-full md:w-auto"
-              >
-                Start Yogi v1
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
-              <p className="text-sm text-muted-foreground mt-4 italic">
-                You will see Yogi v2 after completing this version.
-              </p>
+              <div className="flex items-start gap-4">
+                <ArrowRight className="h-8 w-8 text-primary shrink-0 mt-1" />
+                <div className="flex-1">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    You will first experience the baseline version (Yogi v1), then continue to the 
+                    EFF-enhanced version (Yogi v2). This guided walkthrough helps you compare both 
+                    approaches in sequence.
+                  </p>
+                  <Button 
+                    onClick={() => navigate('/questionnaire/v1')}
+                  >
+                    <ArrowRight className="h-4 w-4 mr-2" />
+                    Start Yogi v1
+                  </Button>
+                  <p className="text-sm text-muted-foreground mt-4 italic">
+                    You will see Yogi v2 after completing this version.
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </section>
