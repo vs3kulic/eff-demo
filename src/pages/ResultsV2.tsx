@@ -355,13 +355,25 @@ const ResultsV2 = () => {
             </p>
           </div>
 
+          {/* Walkthrough Complete */}
+          <Card className="shadow-card border-accent/30 bg-accent/5">
+            <CardContent className="pt-6 text-center">
+              <CheckCircle2 className="h-8 w-8 text-accent mx-auto mb-3" />
+              <h3 className="font-heading font-semibold text-lg mb-2">Walkthrough Complete</h3>
+              <p className="text-muted-foreground mb-4">
+                You have now experienced both versions of the Yogi application. Thank you for 
+                participating in this comparison study.
+              </p>
+              <Button onClick={() => navigate("/")} size="lg" className="w-full md:w-auto">
+                Back to Start
+              </Button>
+            </CardContent>
+          </Card>
+
           {/* Actions */}
           <div className="flex gap-3">
             <Button onClick={() => navigate("/questionnaire/v2")} variant="outline" size="sm" className="flex-1">
               Retake Questionnaire
-            </Button>
-            <Button onClick={() => navigate("/")} size="sm" className="flex-1">
-              Back to Overview
             </Button>
           </div>
         </div>

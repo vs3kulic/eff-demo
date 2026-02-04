@@ -162,12 +162,45 @@ const Home = () => {
 
         <Separator className="my-8" />
 
-        {/* Implementation Comparison */}
+        {/* Start Walkthrough Section */}
+        <section className="mb-12">
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="section-number">4.</span>
+            <h2 className="text-2xl font-heading font-semibold">Yogi Application Walkthrough</h2>
+          </div>
+          <Card className="shadow-card">
+            <CardContent className="pt-6">
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                You will first experience the baseline version (Yogi v1), then continue to the 
+                EFF-enhanced version (Yogi v2). This guided walkthrough helps you compare both 
+                approaches in sequence.
+              </p>
+              <Button 
+                onClick={() => navigate('/questionnaire/v1')}
+                size="lg"
+                className="w-full md:w-auto"
+              >
+                Start Yogi v1
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4 italic">
+                You will see Yogi v2 after completing this version.
+              </p>
+            </CardContent>
+          </Card>
+        </section>
+
+        <Separator className="my-8" />
+
+        {/* Implementation Comparison (Secondary) */}
         <section className="mb-12">
           <div className="flex items-baseline gap-2 mb-6">
-            <span className="section-number">4.</span>
+            <span className="section-number">5.</span>
             <h2 className="text-2xl font-heading font-semibold">Implementation Comparison</h2>
           </div>
+          <p className="text-muted-foreground mb-6">
+            For reference: the technical differences between the two versions.
+          </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Version 1 Card */}
@@ -248,25 +281,6 @@ const Home = () => {
               </CardContent>
             </Card>
           </div>
-
-          {/* Buttons Row */}
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
-            <Button 
-              onClick={() => navigate('/questionnaire/v1')}
-              variant="outline"
-              className="w-full"
-            >
-              Start V1 Demonstration
-              <ArrowRight className="h-4 w-4 ml-2" />
-            </Button>
-            <Button 
-              onClick={() => navigate('/questionnaire/v2')}
-              className="w-full"
-            >
-              Start V2 Demonstration
-              <ArrowRight className="h-4 w-4 ml-2" />
-            </Button>
-          </div>
         </section>
 
         <Separator className="my-8" />
@@ -274,7 +288,7 @@ const Home = () => {
         {/* Research Context */}
         <section>
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="section-number">5.</span>
+            <span className="section-number">6.</span>
             <h2 className="text-2xl font-heading font-semibold">Research Context</h2>
           </div>
           <Card className="shadow-card bg-muted/30">
