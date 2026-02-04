@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Sparkles, FileText } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, FileText } from "lucide-react";
 import { VersionBadge } from "@/components/FlowAnnotation";
 
 type Answers = Record<string, string>;
@@ -202,13 +202,24 @@ const ResultsV1 = () => {
             </p>
           </div>
 
+          {/* Continue to V2 */}
+          <Card className="shadow-card border-primary/30 bg-primary/5">
+            <CardContent className="pt-6">
+              <p className="text-muted-foreground mb-4">
+                You have completed the baseline version. Continue to see how the EFF-enhanced 
+                version handles the same features with ethical considerations.
+              </p>
+              <Button onClick={() => navigate("/questionnaire/v2")} size="lg" className="w-full">
+                Continue to Yogi v2
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+            </CardContent>
+          </Card>
+
           {/* Actions */}
           <div className="flex gap-3">
             <Button onClick={() => navigate("/questionnaire/v1")} variant="outline" size="sm" className="flex-1">
               Retake Questionnaire
-            </Button>
-            <Button onClick={() => navigate("/")} size="sm" className="flex-1">
-              Back to Overview
             </Button>
           </div>
         </div>
