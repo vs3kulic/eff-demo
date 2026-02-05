@@ -40,9 +40,8 @@ const Home = () => {
               <p className="text-muted-foreground leading-relaxed">
                 The Yogi Application demonstrates the application of the Ethics Filter Framework (EFF) 
                 to integrate Value-Based Engineering into agile requirements. Two versions of a yoga 
-                recommendation system are presented: <strong>Version 1 (Baseline)</strong> implements 
-                functional requirements without explicit ethical analysis, while <strong>Version 2 
-                (Ethical Enhancement)</strong> integrates ethical values through harm clauses and 
+                recommendation system are presented: <strong>Yogi V1</strong> implements 
+                functional requirements without explicit ethical analysis, while <strong>Yogi V2</strong> integrates ethical values through harm clauses and
                 ethical acceptance criteria.
               </p>
               <div className="border-t border-border pt-4">
@@ -209,7 +208,7 @@ const Home = () => {
             <Card className="shadow-card">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <VersionBadge version="V1" label="Baseline" />
+                  <VersionBadge version="V1" label="Yogi V1" />
                   <FileText className="h-5 w-5 text-muted-foreground" />
                 </div>
                 <CardTitle className="text-xl font-heading">
@@ -248,7 +247,7 @@ const Home = () => {
             <Card className="shadow-card border-accent/30">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
-                  <VersionBadge version="V2" label="Ethical Enhancement" />
+                  <VersionBadge version="V2" label="Yogi V2" />
                   <Shield className="h-5 w-5 text-accent" />
                 </div>
                 <CardTitle className="text-xl font-heading">

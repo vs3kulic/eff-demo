@@ -141,7 +141,7 @@ const ResultsV2 = () => {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Overview
           </Button>
-          <VersionBadge version="V2" label="Ethical Enhancement" />
+          <VersionBadge version="V2" label="Yogi V2" />
         </div>
 
         <div className="space-y-6">

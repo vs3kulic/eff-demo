@@ -112,7 +112,7 @@ const QuestionnaireV1 = () => {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Overview
           </Button>
-          <VersionBadge version="V1" label="Baseline" />
+          <VersionBadge version="V1" label="Yogi V1" />
         </div>
 
         <FlowAnnotation

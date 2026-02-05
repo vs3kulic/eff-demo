@@ -185,7 +185,7 @@ const UserStories = () => {
           <div>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="section-number">A.1</span>
-              <h2 className="text-2xl font-heading font-semibold">User Stories v1 (Baseline)</h2>
+              <h2 className="text-2xl font-heading font-semibold">User Stories (Yogi V1)</h2>
             </div>
             <p className="text-muted-foreground text-sm">
               Standard functional requirements without explicit ethical analysis.
@@ -194,7 +194,7 @@ const UserStories = () => {
           <div>
             <div className="flex items-baseline gap-2 mb-2">
               <span className="section-number">A.2</span>
-              <h2 className="text-2xl font-heading font-semibold">User Stories v2 (Ethical Enhancement)</h2>
+              <h2 className="text-2xl font-heading font-semibold">User Stories (Yogi V2)</h2>
             </div>
             <p className="text-muted-foreground text-sm">
               Extended with harm clauses and ethical acceptance criteria.

@@ -130,7 +130,7 @@ const QuestionnaireV2 = () => {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Overview
             </Button>
-            <VersionBadge version="V2" label="Ethical Enhancement" />
+            <VersionBadge version="V2" label="Yogi V2" />
           </div>
 
           <Card className="shadow-card border-accent/30">
