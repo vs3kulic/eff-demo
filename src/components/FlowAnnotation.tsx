@@ -59,8 +59,7 @@ export const VersionBadge = ({ version, label, className }: VersionBadgeProps) =
         className
       )}
     >
-      <span className="font-bold">{version}</span>
-      <span className="text-xs">{label}</span>
+      <span className="font-bold">{label}</span>
     </div>
   );
 };
