@@ -142,7 +142,7 @@ const Home = () => {
                 <ArrowRight className="h-8 w-8 text-primary shrink-0 mt-1" />
                 <div className="flex-1">
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    <strong>You will first experience Yogi v1, then continue to Yogi v2.</strong> This guided 
+                    <strong className="text-foreground">You will first experience Yogi v1, then continue to Yogi v2.</strong> This guided 
                     walkthrough helps you compare both approaches in sequence.
                   </p>
                   <Button 
