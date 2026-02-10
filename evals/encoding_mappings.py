@@ -1,0 +1,141 @@
+# Encoding mappings for categorical response values
+
+# Impact scale - Used for Yogi v1/v2 effect ratings
+IMPACT_MAPPING = {
+    "Strongly supports": 5,
+    "Somewhat supports": 4,
+    "No impact": 3,
+    "Somewhat harms": 2,
+    "Strongly harms": 1,
+}
+
+# Reverse mapping for decoding
+IMPACT_REVERSE = {v: k for k, v in IMPACT_MAPPING.items()}
+
+# Agreement scale - Used for Desirable Requirements (DR) ratings
+AGREEMENT_MAPPING = {
+    "Strongly agree": 5,
+    "Agree": 4,
+    "Neutral": 3,
+    "Disagree": 2,
+    "Strongly disagree": 1,
+}
+
+# Reverse mapping for decoding
+AGREEMENT_REVERSE = {v: k for k, v in AGREEMENT_MAPPING.items()}
+
+# Columns that use impact scale (Yogi v1 and v2 impact ratings)
+IMPACT_COLUMNS = [
+    "yogi_v1_utility",
+    "yogi_v1_fairness",
+    "yogi_v1_privacy",
+    "yogi_v1_explainability",
+    "yogi_v1_safety",
+    "yogi_v2_utility",
+    "yogi_v2_fairness",
+    "yogi_v2_privacy",
+    "yogi_v2_explainability",
+    "yogi_v2_safety",
+]
+
+# Columns that use agreement scale (Desirable Requirements)
+AGREEMENT_COLUMNS = [
+    "dr1_stakeholder_centric",
+    "dr2_value_interpretation",
+    "dr3_specification_translation",
+    "dr4_verifiable_acceptance",
+    "dr5_process_integration",
+]
+
+# Demographics & Background Encodings
+
+# Professional role (nominal - no ordering)
+ROLE_MAPPING = {
+    "Software Developer / Engineer": 1,
+    "Requirements Engineer": 2,
+    "Product Owner / Product Manager": 3,
+    "Scrum Master / Agile Coach": 4,
+    "Quality Assurance / Tester": 5,
+    "IT / AI Ethicist": 6,
+    "IT / AI Legal Expert": 7,
+    "Graduate Student (Computer Science / Software Engineering)": 8,
+}
+ROLE_REVERSE = {v: k for k, v in ROLE_MAPPING.items()}
+
+# Agile experience (ordinal - ordered by experience level)
+EXPERIENCE_MAPPING = {
+    "Less than 2 years": 1,
+    "2-5 years": 2,
+    "5-10 years": 3,
+    "10+ years": 4,
+}
+EXPERIENCE_REVERSE = {v: k for k, v in EXPERIENCE_MAPPING.items()}
+
+# VBE familiarity (ordinal - ordered by knowledge level)
+VBE_FAMILIARITY_MAPPING = {
+    "No, I am not familiar with it": 1,
+    "I have heard of it but have limited knowledge": 2,
+    "I am somewhat familiar with it": 3,
+    "I am very familiar with it": 4,
+}
+VBE_FAMILIARITY_REVERSE = {v: k for k, v in VBE_FAMILIARITY_MAPPING.items()}
+
+# AI/ML experience (ordinal - ordered by experience level)
+AI_ML_EXPERIENCE_MAPPING = {
+    "No, I have no experience with AI systems": 1,
+    "No, but I am familiar with AI development practices": 2,
+    "Yes, I have worked on a few AI projects": 3,
+    "Yes, extensively (primary focus of my work)": 4,
+}
+AI_ML_EXPERIENCE_REVERSE = {v: k for k, v in AI_ML_EXPERIENCE_MAPPING.items()}
+
+# Ethical risk frequency (ordinal - ordered by frequency)
+ETHICAL_RISK_FREQUENCY_MAPPING = {
+    "Never or almost never": 1,
+    "Rarely, when mandated by regulation or clients": 2,
+    "In some projects when risks are obvious": 3,
+    "Frequently, as a standard practice": 4,
+    "Always, in every project": 5,
+}
+ETHICAL_RISK_FREQUENCY_REVERSE = {v: k for k, v in ETHICAL_RISK_FREQUENCY_MAPPING.items()}
+
+# Columns that use demographic encodings
+DEMOGRAPHIC_COLUMNS = {
+    "professional_role": ROLE_MAPPING,
+    "agile_experience_years": EXPERIENCE_MAPPING,
+    "vbe_familiarity": VBE_FAMILIARITY_MAPPING,
+    "ai_ml_experience": AI_ML_EXPERIENCE_MAPPING,
+    "ethical_risk_frequency": ETHICAL_RISK_FREQUENCY_MAPPING,
+}
+
+# Scale descriptions for documentation
+SCALES = {
+    "impact": {
+        "description": "Likert scale measuring impact of Yogi versions on ethical values",
+        "values": IMPACT_MAPPING,
+    },
+    "agreement": {
+        "description": "Likert scale measuring agreement with Desirable Requirements",
+        "values": AGREEMENT_MAPPING,
+    },
+    "role": {
+        "description": "Nominal encoding of professional role (no ordering)",
+        "values": ROLE_MAPPING,
+    },
+    "experience": {
+        "description": "Ordinal encoding of agile experience years",
+        "values": EXPERIENCE_MAPPING,
+    },
+    "vbe_familiarity": {
+        "description": "Ordinal encoding of VBE familiarity level",
+        "values": VBE_FAMILIARITY_MAPPING,
+    },
+    "ai_ml_experience": {
+        "description": "Ordinal encoding of AI/ML experience level",
+        "values": AI_ML_EXPERIENCE_MAPPING,
+    },
+    "ethical_risk_frequency": {
+        "description": "Ordinal encoding of how often ethical risks are addressed",
+        "values": ETHICAL_RISK_FREQUENCY_MAPPING,
+    },
+}
