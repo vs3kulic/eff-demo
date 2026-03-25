@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-#########################################################################
-# SCALE MAPPINGS
-#########################################################################
+##################
+# SCALE MAPPINGS #
+##################
 
 # Impact scale - Used for Yogi v1/v2 effect ratings
 IMPACT_MAPPING = {
@@ -52,9 +52,9 @@ AGREEMENT_COLUMNS = [
 ]
 
 
-#########################################################################
-# DEMOGRAPHIC MAPPINGS
-#########################################################################
+########################
+# DEMOGRAPHIC MAPPINGS #
+########################
 
 # Professional role (nominal - no ordering)
 ROLE_MAPPING = {
@@ -117,9 +117,9 @@ DEMOGRAPHIC_COLUMNS = {
 }
 
 
-#########################################################################
-# DOCUMENTATION AND METADATA REFERENCE
-#########################################################################
+########################################
+# DOCUMENTATION AND METADATA REFERENCE #
+########################################
 
 # Scale descriptions for documentation
 SCALES = {
