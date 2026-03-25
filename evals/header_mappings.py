@@ -1,4 +1,9 @@
-# Header mapping from raw to normalized column names
+# -*- coding: utf-8 -*-
+
+#########################################################################
+# HEADER MAPPINGS
+#########################################################################
+
 HEADER_MAPPINGS = {
     # Timestamp
     "Zeitstempel": "timestamp",

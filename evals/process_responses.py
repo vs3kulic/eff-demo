@@ -1,19 +1,26 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
+Author  -- Vajo Sekulic
+Contact -- sekulicvajo@gmail.com
+Date    -- 25.03.2025
+
+###############################################################################
+
+The following copyright statement applies to all code within this file.
+
+Copyright statement:
+This material, no matter whether in printed or electronic form, may be used for
+personal and non-commercial educational use only. Any reproduction of this
+material, no matter whether as a whole or in parts, no matter whether in 
+printed or in electronic form, requires explicit prior acceptance of the 
+authors.
+
+###############################################################################
+
 Complete pipeline for processing EFF evaluation responses.
 
 This script takes the raw CSV and produces a fully encoded, sanitized dataset
 ready for statistical analysis.
-
-Pipeline:
-1. Normalize headers (verbose → clean snake_case)
-2. Encode impact scales (Yogi v1/v2) and agreement scales (DR1-DR5)
-3. Remove free-text and unused columns
-4. Encode demographic/background categorical columns
-5. Output fully encoded numeric dataset
-
-Usage:
-    python process_responses.py
 """
 
 import csv
@@ -30,7 +37,7 @@ from encoding_mappings import (
 
 # File paths
 dataset_dir = os.path.join(os.path.dirname(__file__), "datasets")
-input_file = os.path.join(dataset_dir, "eff_eval_responses_raw.csv")
+input_file = os.path.join(dataset_dir, "eff_eval_responses_raw_full_dataset.csv")
 normalized_file = os.path.join(dataset_dir, "eff_eval_responses_normalized.csv")
 output_file = os.path.join(dataset_dir, "eff_eval_responses_fully_encoded.csv")
 
@@ -68,7 +75,6 @@ with open(normalized_file, 'w', encoding='utf-8', newline='') as f:
     writer.writerows(rows)
 
 print(f"✓ Normalized {len(raw_headers)} headers")
-print(f"✓ Created: {os.path.basename(normalized_file)}")
 
 # Step 2: Load normalized responses
 print("\n[2/5] Loading normalized responses...")

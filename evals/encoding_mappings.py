@@ -1,4 +1,8 @@
-# Encoding mappings for categorical response values
+# -*- coding: utf-8 -*-
+
+#########################################################################
+# SCALE MAPPINGS
+#########################################################################
 
 # Impact scale - Used for Yogi v1/v2 effect ratings
 IMPACT_MAPPING = {
@@ -47,7 +51,10 @@ AGREEMENT_COLUMNS = [
     "dr5_process_integration",
 ]
 
-# Demographics & Background Encodings
+
+#########################################################################
+# DEMOGRAPHIC MAPPINGS
+#########################################################################
 
 # Professional role (nominal - no ordering)
 ROLE_MAPPING = {
@@ -64,10 +71,11 @@ ROLE_REVERSE = {v: k for k, v in ROLE_MAPPING.items()}
 
 # Agile experience (ordinal - ordered by experience level)
 EXPERIENCE_MAPPING = {
-    "Less than 2 years": 1,
-    "2-5 years": 2,
-    "5-10 years": 3,
-    "10+ years": 4,
+    "Less than 1 year": 1,
+    "1-2 years": 2,
+    "2-5 years": 3,
+    "5-10 years": 4,
+    "10+ years": 5,
 }
 EXPERIENCE_REVERSE = {v: k for k, v in EXPERIENCE_MAPPING.items()}
 
@@ -75,8 +83,8 @@ EXPERIENCE_REVERSE = {v: k for k, v in EXPERIENCE_MAPPING.items()}
 VBE_FAMILIARITY_MAPPING = {
     "No, I am not familiar with it": 1,
     "I have heard of it but have limited knowledge": 2,
-    "I am somewhat familiar with it": 3,
-    "I am very familiar with it": 4,
+    "Yes, I have read about VBE or applied it in projects": 3,
+    "Yes, I have formal training or certification in VBE": 4,
 }
 VBE_FAMILIARITY_REVERSE = {v: k for k, v in VBE_FAMILIARITY_MAPPING.items()}
 
@@ -84,18 +92,18 @@ VBE_FAMILIARITY_REVERSE = {v: k for k, v in VBE_FAMILIARITY_MAPPING.items()}
 AI_ML_EXPERIENCE_MAPPING = {
     "No, I have no experience with AI systems": 1,
     "No, but I am familiar with AI development practices": 2,
-    "Yes, I have worked on a few AI projects": 3,
+    "Yes, occasionally (as part of broader projects)": 3,
     "Yes, extensively (primary focus of my work)": 4,
 }
 AI_ML_EXPERIENCE_REVERSE = {v: k for k, v in AI_ML_EXPERIENCE_MAPPING.items()}
 
 # Ethical risk frequency (ordinal - ordered by frequency)
 ETHICAL_RISK_FREQUENCY_MAPPING = {
-    "Never or almost never": 1,
-    "Rarely, when mandated by regulation or clients": 2,
-    "In some projects when risks are obvious": 3,
-    "Frequently, as a standard practice": 4,
-    "Always, in every project": 5,
+    "Not applicable to my work": 1,
+    "Never": 2,
+    "Rarely, when mandated by regulation or clients": 3,
+    "In some projects when risks are obvious": 4,
+    "In almost every project": 5,
 }
 ETHICAL_RISK_FREQUENCY_REVERSE = {v: k for k, v in ETHICAL_RISK_FREQUENCY_MAPPING.items()}
 
@@ -107,6 +115,11 @@ DEMOGRAPHIC_COLUMNS = {
     "ai_ml_experience": AI_ML_EXPERIENCE_MAPPING,
     "ethical_risk_frequency": ETHICAL_RISK_FREQUENCY_MAPPING,
 }
+
+
+#########################################################################
+# DOCUMENTATION AND METADATA REFERENCE
+#########################################################################
 
 # Scale descriptions for documentation
 SCALES = {
