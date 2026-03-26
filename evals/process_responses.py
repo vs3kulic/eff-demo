@@ -33,6 +33,8 @@ from encoding_mappings import (
     IMPACT_COLUMNS,
     AGREEMENT_COLUMNS,
     DEMOGRAPHIC_COLUMNS,
+    ROLE_CLUSTER_MAPPING,
+    ROLE_TO_CLUSTER,
 )
 
 # File paths
@@ -131,6 +133,23 @@ for row in sanitized_rows:
 print(f"✓ Encoded {len(DEMOGRAPHIC_COLUMNS)} demographic columns:")
 for col in DEMOGRAPHIC_COLUMNS.keys():
     print(f"  - {col}")
+
+# Add role cluster columns (name and code) after demographic encoding
+for row in sanitized_rows:
+    try:
+        role_code = int(row.get("professional_role", 0))
+        cluster_name = ROLE_TO_CLUSTER.get(role_code, "Unknown")
+        cluster_code = ROLE_CLUSTER_MAPPING.get(cluster_name, 0)
+    except Exception:
+        cluster_name = "Unknown"
+        cluster_code = 0
+    row["role_cluster"] = cluster_name
+    row["role_cluster_code"] = cluster_code
+
+# Add new cluster columns to headers if not present
+for new_col in ["role_cluster", "role_cluster_code"]:
+    if new_col not in sanitized_headers:
+        sanitized_headers.append(new_col)
 
 # Write fully encoded CSV
 print("\n[Final] Writing fully encoded dataset...")

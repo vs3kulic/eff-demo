@@ -117,6 +117,28 @@ DEMOGRAPHIC_COLUMNS = {
 }
 
 
+###########################################
+# ROLE CLUSTER MAPPING (Developer/IT Pro) #
+###########################################
+ROLE_CLUSTER_MAPPING = {
+    "Developer": 1,
+    "IT Professional": 2,
+}
+ROLE_CLUSTER_REVERSE = {v: k for k, v in ROLE_CLUSTER_MAPPING.items()}
+
+# Map each role (by code) to its cluster
+ROLE_TO_CLUSTER = {
+    1: "Developer",  # Software Developer / Engineer
+    2: "IT Professional",
+    3: "IT Professional",
+    4: "IT Professional",
+    5: "IT Professional",
+    6: "IT Professional",
+    7: "IT Professional",
+    8: "IT Professional",
+}
+
+
 ########################################
 # DOCUMENTATION AND METADATA REFERENCE #
 ########################################
@@ -134,6 +156,14 @@ SCALES = {
     "role": {
         "description": "Nominal encoding of professional role (no ordering)",
         "values": ROLE_MAPPING,
+    },
+    "role_cluster": {
+        "description": "Nominal encoding of professional role clusters: Developer (1), IT Professional (2)",
+        "values": ROLE_CLUSTER_MAPPING,
+    },
+    "role_to_cluster": {
+        "description": "Mapping from professional role code to cluster name (Developer/IT Professional)",
+        "values": ROLE_TO_CLUSTER,
     },
     "experience": {
         "description": "Ordinal encoding of agile experience years",
