@@ -94,6 +94,24 @@ with open(normalized_file, 'r', encoding="utf-8") as f:
     rows = list(reader)
 print(f"✓ Loaded {len(rows)} responses with {len(headers)} columns")
 
+# Extract eff_feedback column and write to a separate file
+free_text_file = os.path.join(dataset_dir, "eff_eval_responses_free_text.txt")
+eff_feedback_responses = [row["eff_feedback"] for row in rows if row.get("eff_feedback") and row["eff_feedback"].strip()]
+with open(free_text_file, 'w', encoding='utf-8') as f:
+    for i, response in enumerate(eff_feedback_responses, 1):
+        f.write(f"Response {i}:\n{response}\n\n")
+print(f"✓ Extracted {len(eff_feedback_responses)} free-text responses to {os.path.basename(free_text_file)}")
+
+# Write clean responses.csv with id, response columns
+responses_csv = os.path.join(dataset_dir, "responses.csv")
+with open(responses_csv, 'w', encoding='utf-8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(["id", "response"])
+    for i, response in enumerate(eff_feedback_responses, 1):
+        pid = f"P{i:02d}"
+        writer.writerow([pid, response])
+print(f"✓ Wrote clean responses.csv with {len(eff_feedback_responses)} responses")
+
 # Step 3: Encode impact and agreement scales
 print("\n[3/5] Encoding impact and agreement scales...")
 for row in rows:

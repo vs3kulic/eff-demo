@@ -25,3 +25,5 @@ dist-ssr
 
 # Datasets
 evals/datasets/*
+evals/plots/*
+evals/qual_analysis/*
